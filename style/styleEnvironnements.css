@@ -1,0 +1,162 @@
+/*---STYLE GENERAL DU CONTENU PRINCIPAL--------*/
+h3 {
+  /*On centre le titre et on lui met une faible opacité de base,
+  car on l'éclaircit au survol de sa section.*/
+  margin: auto;
+  opacity: 0.2;
+  transition: 1s;
+}
+
+
+main section:first-of-type {
+  /*On applique une marge à la première section
+  de notre contenu principal.*/
+  margin-top: 20px;
+}
+
+main figure {
+  /*Les figures sont en grid, cela facilite l'alignement entre les images
+  et le texte, ainsi que leur alternance de position.*/
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: justify;
+}
+
+main figure img {
+  width: 400px;
+  margin: 40px;
+  border: 3px ridge goldenrod;
+  /*On applique un grand border-radius pour
+  rendre l'image quasiment ovale.*/
+  border-radius: 150px;
+  /*On centre verticalement et horizontalement l'image dans sa colonne*/
+  align-self: center;
+  justify-self: center;
+  transition: 1s;
+}
+
+main figcaption {
+  /*On centre verticalement et horizontalement le texte dans sa colonne*/
+  align-self: center;
+  justify-self: center;
+  /*On le rend invisible et on réduit sa taille pour faire une jolie
+  apparition au survol.*/
+  transform: scale(0.4);
+  opacity: 0;
+
+}
+
+main section:hover figure img {
+  /*On annule le border-radius et la translation, et on rajoute
+  une ombre derrière l'image. Le tout avec une transition, cela forme
+  une animation au survol de la section.*/
+  border-radius: revert;
+  box-shadow: 2px 2px 10px 2px black;
+  transform: revert;
+  transition: 1s;
+}
+
+main section:hover h3 {
+  /*On fait apparaître le titre et on le fait tourner sur lui-même au survol
+  de sa section.*/
+  opacity: 1;
+  transform: rotateX(360deg);
+  transition: 1s;
+}
+
+main section:hover figcaption {
+  /*On remet la taille initiale au texte et on le rend visible au survol
+  de sa section.*/
+  transform: scale(1);
+  opacity: 1;
+  transition: 1.2s;
+}
+
+/*---------------------------------------------*/
+
+/*Les deux règles qui suivent dimensionnent la taille des colonnes
+suivant si la section est fille paire ou impaire du main. En effet on alloue
+les 3/4 de l'espace au texte, et le quart restant à l'image.*/
+main section:nth-of-type(odd) figure {
+  grid-template-columns: 1fr 3fr;
+}
+
+main section:nth-of-type(even) figure {
+  grid-template-columns: 3fr 1fr;
+}
+
+/*Les deux règles qui suivent positionnent les images suivant si leur
+section est paire ou impaire. 'translate' déplace l'image sans impacter les
+autres contenus. Je l'utilise ici pour faire une apparition de l'image au survol.*/
+main section:nth-of-type(odd) img {
+  transform: translateX(-50%);
+}
+main section:nth-of-type(even) img {
+  /*L'image passe sur la deuxième colonne dans les sections paires.*/
+  grid-column: 2;
+  transform: translateX(50%);
+}
+
+/*On doit préciser que le texte des sections paires passe sur la première
+colonne mais reste sur la première ligne.*/
+main section:nth-of-type(even) figcaption {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+
+/*--------RESPONSIVE DESIGN-----------------------*/
+
+@media (max-width: 1100px) {
+  /*Sur les écrans de taille moyenne, figure n'est plus une grille et le texte
+  vient se placer en dessous des images. L'alternance de position de concerne
+  plus que les images.*/
+  main figure {
+    display: revert;
+  }
+  main figure img {
+    display: block;
+    margin: auto;
+    transform: revert;
+  }
+  main section:nth-of-type(even) img {
+    grid-column: 2;
+    transform: translateX(100%);
+  }
+
+  main section:nth-of-type(odd) img {
+    transform: translateX(-100%);
+  }
+  main section:hover img {
+    transform: revert;
+    transition: 1s;
+  }
+}
+
+@media (max-width: 600px) {
+  /*Sur mobile, les animations au survol disparaissent, on supprime
+  l'alternance et les textes/images sont directement visibles*/
+  main figure img {
+    width: 300px;
+    border-radius: 0;
+  }
+  main h3 {
+    opacity: 1;
+  }
+
+  main section:nth-of-type(even) img {
+    transform: revert;
+  }
+
+  main section:nth-of-type(odd) img {
+    transform: revert;
+  }
+  main section figcaption {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*---------------------------------------------------*/

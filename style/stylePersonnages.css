@@ -1,0 +1,133 @@
+/*-----------------MENU DE SELECTION DE PERSONNAGES---------------*/
+
+.menuPerso {
+  /*Le menu est une grille 3x3, avec la dernière ligne laissée
+  inoccupée pour laisser apparaître la description des personnages.*/
+  width: auto;
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto 3fr;
+  gap: 10px;
+  height: 1000px;
+}
+
+.cartePerso {
+  /*Design des boutons des personnages*/
+  margin: auto;
+  margin-top: 40px;
+  width: 180px;
+  height: 180px;
+  border: 0;
+  border-radius: 50px;
+  background-color: black;
+  text-align: center;
+  cursor: url(pointeurs/anneaucursor.png), pointer;
+}
+
+.cartePerso > img {
+  /*On repositionne les images des boutons*/
+  position: relative;
+  border: 2px ridge goldenrod;
+  border-radius: 50px;
+  right: 8px;
+  bottom: 5px;
+  transition: 0.5s;
+}
+
+.cartePerso > img:hover {
+  /*On met en évidence le bouton au survol*/
+  opacity: 0.4;
+  transition: 0.5s;
+}
+
+.descriptionPerso {
+  /*La description du personnage est aussi une grille, en 2 colonnes.
+  Elle accueille l'image sur la première et le texte sur la deuxième.
+
+  On les met toutes en arrière-plan avec z-index: -1, et on les centre
+  horizontalement avec left:-50% et transform: translate(-50%,xx) comme
+  elles sont en position absolute.*/
+  display: grid;
+  grid-template-columns: 420px auto;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  transform: translate(-50%, 500px);
+  width: 1000px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 0;
+  transition: 0.25s;
+}
+
+.descriptionPerso figcaption {
+  align-self: center;
+}
+
+.descriptionPerso img {
+  align-self: center;
+  width: 400px;
+  border: 4px ridge green;
+  border-radius: 40px;
+}
+
+.descriptionPerso h3 {
+  margin: auto;
+}
+
+.descriptionPerso p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: white;
+  text-align: justify;
+}
+
+
+.cartePerso:focus + .descriptionPerso {
+  /*Au clic ou au verrouillage par tabulation de la carte du personnage,
+  sa description passe au premier-plan et devient visible. Pour une petite
+  transition, on fait tourner sur l'axe Y la description.*/
+  z-index: 1;
+  opacity: 1;
+  transform: translate(-50%, 500px) rotateY(360deg);
+  transition: 1s;
+}
+
+/*--------------------------------------------------------*/
+
+/*-------------RESPONSIVE DESIGN--------------------------*/
+
+@media (max-width: 1150px) {
+  /*A partir des écrans de taille moyenne jusqu'au format mobile,
+  le menu passe sur deux colonnes. On doit alors modifier la position
+  de base des descriptions de personnage.*/
+  main {
+    height: 1850px;
+  }
+
+  .menuPerso {
+    grid-template-columns: auto auto;
+  }
+
+  .descriptionPerso {
+    width: auto;
+    grid-template-columns: auto;
+    transform: translate(-60%, 750px);
+  }
+
+  .descriptionPerso img {
+    margin: auto;
+    width: 380px;
+  }
+
+  .cartePerso:focus + .descriptionPerso {
+    transform: translate(-60%, 750px) rotateY(360deg);
+  }
+}
+
+/*------------------------------------------------------*/

@@ -1,0 +1,395 @@
+/*Police générée par Font Squirrel (https://www.fontsquirrel.com)
+C'est la police que j'utilise pour les titres, et certains éléments
+textuels du site web.*/
+@font-face {
+    font-family: 'ringbearermedium';
+    src: url('fonts/ringm___-webfont.woff2') format('woff2'),
+         url('fonts/ringm___-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Ici je crée une animation très simple que je vais réutiliser sur des
+éléments de mon site.*/
+@keyframes pulsation {
+  from {
+      opacity: 0.2;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+
+/*------------------------------------------------------------------
+
+STYLE PRINCIPAL : regroupe le style commun à toutes les pages, c'est-à-dire :
+
+-le style basique (fonds, titres, éléments à mettre en valeur, liens)
+-le style des éléments communs aux pages ::after
+    -la bannière
+    -le menu principal
+    -une carte de la Terre du Milieu animée
+    -le pied-de-page (comprenant un menu de navigation simplifié)
+
+-------------------------------------------------------------------*/
+
+/*BASES DE LA PAGE-------------------------------------------*/
+html {
+  font-family: 'Arial';
+  font-size: 20px;
+  color: white;
+  background-color: bisque;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'ringbearermedium';
+  color: goldenrod;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2em;
+  padding: 1%;
+  border: 4px ridge green;
+  /*Le border-radius adouci les coins d'un bloc et peut servir
+  à renforcer une mise en évidence.*/
+  border-radius: 20px;
+  /*le max-content sert à ce que le border ne prenne pas toute la
+  largeur de la page, mais soit taillée par-rapport à la longueur
+  du titre. J'ai préféré ne pas centraliser le 'margin: auto' pour
+  gérer l'alignement horizontal des titres page par page.*/
+  width: max-content;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+main > p {
+  /*Cette règle sélectionne les paragraphes descendants directs
+  du main (dans mon site il s'agit des phrases d'accroche de chaque page*/
+  font-size: 1.5em;
+  margin: 20px auto;
+  text-align: center;
+  font-family: "ringbearermedium";
+  color: goldenrod;
+}
+
+.topMenu, main {
+  /*La valeur 'linear-gradient' permet de créer un dégradé de couleur,
+  je l'ai utilisé pour avoir un fond moins monochrome.*/
+  background: linear-gradient(0.25turn, black, rgba(0, 0, 0, 0.8), black);
+  border: 2px solid black;
+}
+
+/*Ces deux classes me servent à mettre des mots en valeur dans le contenu textuel.*/
+.important {
+  color: green;
+  font-weight: bold;
+}
+
+.personnalite {
+  font-style: italic;
+  color: goldenrod;
+}
+
+
+a {
+  color: goldenrod;
+}
+a:hover {
+  /*Cette ligne de code déclare qu'au survol de tous les liens du site,
+  le curseur se transforme en une toute petite image. (ici, l'anneau)*/
+  cursor: url(pointeurs/anneaucursor.png), pointer;
+}
+
+.topMenu a, .footerLink {
+  text-decoration: none;
+}
+
+.footerLink {
+  /*Mettre les liens du pied-de-page en 'display: block'
+  permet de leur faire prendre la largeur de leur conteneur,
+  et de rendre ainsi cliquable l'item de liste <li>*/
+  display: block;
+  color: goldenrod;
+  transition: 0.5s;
+}
+.footerLink:hover {
+  /*Ils sont aussi mis en évidence au survol :
+  réduction d'opacité et soulignage.*/
+  opacity: 0.6;
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+/*--------------------------------------------------------*/
+
+
+/*EN-TETE-------------------------------------------------*/
+.mainHeader {
+  text-align: center;
+  background-color: black;
+  border: 3px solid goldenrod;
+}
+
+h1 {
+  /*La taille de la police est réglée pour être 3.5 fois
+  plus grande que la normale (dans mon site, 20px)*/
+  font-size: 3.5em;
+  text-decoration: underline;
+}
+
+#anneauLogoHeader {
+  width: 100px;
+  /*Le 'position:relative' me permet de remonter l'image ainsi
+  que la bas de la bannière.*/
+  position: relative;
+  bottom: 20px;
+}
+/*---------------------------------------------------------*/
+
+
+/*MENU DE NAVIGATION---------------------------------------*/
+
+/*Partie commune aux deux menus de navigation (haut et bas de page)*/
+
+.menu {
+  font-family: 'ringbearermedium';
+  text-align: center;
+}
+
+.menu ul {
+  /*Le menu est structuré ici, avec une grille de 4 colonnes et une ligne.*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  list-style: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.menu li {
+  border: 2mm ridge green;
+}
+
+/*----------------------------------------------------------------*/
+
+/*MENU DU HAUT DE PAGE----------------------------*/
+
+.topMenu li {
+  /*On centre les éléments de la grille horizontalement
+  avec justify-self. (align-self pour la position verticale
+  d'un élément de la grille)*/
+  justify-self: center;
+  width: 280px;
+  height: 175px;
+}
+
+.topMenu img {
+  /*On donne des dimensions fixes à l'image pour ne pas avoir de
+  problème d'adaptativité.*/
+  width: 280px;
+  height: 175px;
+  opacity: 1;
+}
+
+.topMenu figure {
+  /*On donne les dimensions de l'image à la figure pour que
+  l'image la remplisse totalement.*/
+  margin: 0;
+  width: 280px;
+  height: 175px;
+}
+
+.topMenu figcaption {
+  /*Grâce à 'position: relative' on remonte la description du lien
+  sur l'image de la figure. On lui met une opacité de 0 pour qu'elle
+  ne soit pas visible en tant normal.*/
+  width: 280px;
+  height: 172px;
+  padding-top: 1.5%;
+  position: relative;
+  bottom: 186px;
+  opacity: 0;
+  /*Le rgba permet de gérer la transparence, ici je mets un noir
+  transparent en fond pour que la description soit lisible, en gardant
+  l'image du lien visible.*/
+  background-color: rgba(0, 0, 0, 0.6);
+  /*Ajouter une transition est très simple mais apporte beaucoup
+  de fluidité et de confort visuel si elle est bien gérée.*/
+  transition: 0.5s;
+}
+
+.topMenu figcaption:hover {
+  /*Au survol, on fait apparaître cette description, avec une courte
+  transition pour plus de fluidité.*/
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.description {
+  color: white;
+  font-size: 16px;
+}
+
+/*J'ai géré plus simplement le retour à l'accueil
+puisqu'il ne comporte pas de texte HTML. Je l'ai
+simplement mis en valeur au survol.*/
+#retourAccueil {
+  opacity: 0.4;
+  transition: 0.5s;
+}
+#retourAccueil:hover {
+  transition: 0.5s;
+  opacity: 1;
+}
+/*------------------------------------------*/
+
+/*MENU DE NAVIGATION PIED-DE-PAGE-----------*/
+.footerMenu ul {
+  /*Mon menu de pied-de page est une grille en 2x2*/
+  display: grid;
+  /*Les valeurs en pourcentage permettent ici d'allonger les <li>
+  sur les plus grands écrans*/
+  grid-template-columns: 20% 20%;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  /*space-around répartit également l'espace entre les items.*/
+  justify-content: space-around;
+}
+
+.footerMenu li {
+  padding: 1%;
+  border-radius: 20px;
+}
+/*------------------------------------------*/
+
+/*CARTE ANIMEE----------------------------------------*/
+
+/*La carte est conçue pour être 'zoomée' au survol. Elle
+est en fait agrandie grâce à 'transform'.*/
+.map {
+  margin: 0;
+  /*overflow:hidden permet de ne pas afficher ce qui sort du conteneur,
+  très utile ici puisqu'on agrandit une image qui prend déjà
+  toute la largeur de la page.*/
+  overflow: hidden;
+  border: 4px ridge goldenrod;
+}
+
+#middleEarth {
+  width: 100%;
+  cursor: url(pointeurs/oeildesauron.png), pointer;
+  text-align: center;
+  opacity: 0.5;
+  /*Le cubic-bezier contient des coordonnées de courbe de Bézier,
+  calculées grâce au site https://cubic-bezier.com/
+  Cela permet de personnaliser et de faire évoluer la célérité
+  de la transition.*/
+  transition: 1.5s cubic-bezier(.21,.37,.52,.84)
+}
+
+#middleEarth:hover {
+  /*'transform: scale(2)' double la taille initiale de l'image*/
+  transform: scale(2);
+  opacity: 1;
+  transition: 3s cubic-bezier(.21,.37,.52,.84)
+}
+/*------------------------------------------------------*/
+
+/*PIED-DE-PAGE------------------------------------------*/
+.mainFooter {
+  text-align: center;
+  color: goldenrod;
+  background-color: black;
+  border: 2px solid goldenrod;
+  font-family: 'ringbearermedium';
+}
+
+footer p {
+  margin-top: 5%;
+}
+
+/*Ce lien de retour vers le haut de page est mis en évidence
+par augmentation de sa taille au survol. On gère cela avec
+'transform' également pour ne pas impacter le reste du contenu.*/
+#anneauLogoFooter {
+  cursor: url(pointeurs/oeildesauron.png), pointer;
+  width: 100px;
+  position: relative;
+  bottom: 110px;
+  opacity: 0.6;
+  transition: 1s;
+}
+
+#anneauLogoFooter:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  transition: 1s;
+}
+/*---------------------------------------------------------*/
+
+/*RESPONSIVE DESIGN----------------------------------------*/
+
+/*Le CSS écrit ci-dessous concerne les écrans moins grands, pour
+qu'ils puissent lire correctement et confortablement le contenu.*/
+
+@media (max-width: 1280px) {
+  /*Valable quand l'écran fait moins de 1280px*/
+
+  .menu ul {
+    /*La grille des menus passe en 2x2 (surtout valable
+    pour le menu du haut). Le 'width: min-content' combiné
+    au 'margin: auto' permet de centrer horizontalement les
+    4 liens.*/
+    width: min-content;
+    margin: 10px auto;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .footerMenu li {
+    width: 250px;
+  }
+  #anneauLogoFooter {
+    /*On repositionne correctement l'anneau*/
+    width: 100px;
+    position: relative;
+    top: 20px;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  /*Valable quand l'écran fait moins de 620px (design pour mobile/tablette)*/
+
+  .menu ul {
+    /*Les deux menus passent sur une seule colonne et sont centrés.*/
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+  }
+  h1 {
+    /*La police du titre principal est réduite.*/
+    font-size: 2em;
+  }
+  .topMenu figcaption {
+    /*On laisse apparaître les descriptions des liens, puisque le survol
+    n'est pas du tout pratique sur les appareils tactiles.*/
+    opacity: 1;
+  }
+  main > p {
+    /*On réduit la taille des phrases d'accroche.*/
+    font-size: 1.2em;
+  }
+}
+/*---------------------------------------------------------*/

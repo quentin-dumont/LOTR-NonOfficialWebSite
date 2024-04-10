@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+  <head>
+    <meta name="author" content="dumont214">
+    <meta name="viewport" content="initial-scale=1" />
+    <meta charset="utf-8">
+    <title>La Communauté de l'Anneau</title>
+    <!--J'inclus ici deux feuilles de style, une valable pour toutes
+    les pages de mon site, et une autre pour cette page en particulier.-->
+    <link rel="stylesheet" href="../style/stylePrincipal.css">
+    <link rel="stylesheet" href="../style/stylePersonnages.css">
+    <link rel="icon" type="image/png" href="../images/imgCommun/anneaulogo.png">
+  </head>
+
+  <body>
+
+    <header class="mainHeader">
+      <h1>Personnages</h1>
+      <img id="anneauLogoHeader" src="../images/imgCommun/anneaulogo.png" alt="Anneau">
+    </header>
+
+    <nav class="menu topMenu">
+
+        <p>Vous pouvez continuer votre aventure, ou retourner à l'accueil.</p>
+
+        <ul>
+
+          <li>
+            <a href="../accueil.html">
+              <img id="retourAccueil" src="../images/imgCommun/retour_accueil.jpg" alt="retour_accueil">
+            </a>
+          </li>
+
+          <li>
+            <a href="environnements.html">
+              <figure>
+                  <img src="../images/imgCommun/environnements.jpeg" alt="Environnements">
+                  <figcaption>
+                    <h2>Environnements</h2>
+                    <p class="description">
+                    Montez sur votre fidèle destrier et partez à la découverte des plus
+                    belles contrées de la saga.
+                    </p>
+                  </figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li>
+            <a href="histoireAnneau.html">
+              <figure>
+                <img src="../images/imgCommun/anneau.jpeg" alt="Histoire de l'Anneau">
+                <figcaption>
+                  <h2>Histoire de l'Anneau</h2>
+                  <p class="description">
+                    Revêtez de chauds vêtements et suivez une mystérieuse créature
+                    qui va vous conter l'histoire de l'Anneau.
+                  </p>
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li>
+            <a href="tolkien.html">
+              <figure>
+                  <img src="../images/imgCommun/tolkien.jpg" alt="Tolkien">
+                  <figcaption>
+                    <h2>J.R.R. Tolkien</h2>
+                    <p class="description">
+                      Restez dans notre monde et découvrez l'inventeur de cet
+                      incroyable univers.
+                    </p>
+                  </figcaption>
+              </figure>
+            </a>
+          </li>
+
+        </ul>
+    </nav>
+
+    <figure class="map">
+      <img id="middleEarth" src="../images/imgCommun/middleEarth.jpeg" alt="La Terre du Milieu">
+    </figure>
+
+    <main>
+
+      <p>C'est ici que vous pouvez en savoir plus sur certains personnages. <span class="important">Cliquez-dessus</span> pour les découvrir !</p>
+
+      <!--Cette page est un grand menu, qui ne fonctionne pas avec des liens mais avec des boutons.
+
+      Le bouton est stylisé par une image et au clic ou au verouillage par tabulation (avec :focus),
+      La figure qui suit le bouton apparaît (utilisation du sélecteur avancé CSS '+').
+
+      Nous allons détailler cela dans la feuille de style concernée.-->
+
+      <nav class="menuPerso">
+        <button class="cartePerso">
+          <img src="../images/imgPersonnages/gandalfMinia.jpeg" alt="gandalf">
+        </button>
+        <figure class="descriptionPerso">
+          <img src="../images/imgPersonnages/gandalf.jpg" alt="gandalf">
+          <figcaption>
+            <h3>Gandalf</h3>
+            <p>
+              Gandalf le Gris, plus tard connu sous le nom de Gandalf le Blanc,
+              et initialement nommé Olórin, était un Istar (Magicien), envoyé
+              sur la Terre du Milieu au Troisième Âge pour combattre la menace
+              de Sauron. Il a rejoint la Compagnie de Thorin pour récupérer la
+              Montagne Solitaire des griffes du dragon Smaug, a convoqué la
+              Communauté de l'Anneau pour détruire l'Anneau Unique et a dirigé
+              les Peuples Libres durant la Guerre de l'Anneau. L’âge de Gandalf
+              est estimé à 9 000 ans à l’époque de La Guerre de l’Anneau.
+            </p>
+          </figcaption>
+        </figure>
+
+        <button class="cartePerso">
+          <img src="../images/imgPersonnages/frodonMinia.jpg" alt="frodon">
+        </button>
+        <figure class="descriptionPerso">
+          <img src="../images/imgPersonnages/frodon.jpg" alt="frodon">
+          <figcaption>
+            <h3>Frodon</h3>
+            <p>
+              Frodon Sacquet (Frodo Baggins en version originale, ou encore Frodo
+              Bessac dans la traduction de Daniel Lauzon et Christian Bourgois),
+              est un Hobbit. Il est le personnage principal de la trilogie
+              Le Seigneur des Anneaux, publiée entre 1954 et 1955 par l'auteur
+              anglais J. R. R. Tolkien. Sa mission est de transporter un anneau
+              maléfique, appelé Anneau unique, jusqu'à Orodruin, la Montagne du
+              Destin située en Mordor, pour le détruire, car son créateur,le Maiar
+              Sauron, veut l'utiliser pour soumettre tous les peuples libres de la
+              Terre du Milieu à sa volonté. Il fait donc partie de la Communauté
+              de l'Anneau.
+            </p>
+          </figcaption>
+        </figure>
+
+        <button class="cartePerso">
+          <img src="../images/imgPersonnages/gimliMinia.jpeg" alt="gimli">
+        </button>
+        <figure class="descriptionPerso">
+          <img src="../images/imgPersonnages/gimli.jpg" alt="gimli">
+          <figcaption>
+            <h3>Gimli</h3>
+            <p>
+              Gimli est un nain, un des protagonistes du Seigneur des anneaux de
+              J. R. R. Tolkien. Nain, fils de Glóin, il fait partie de la
+              Communauté de l'Anneau. Gimli participe à des batailles clés de la
+              guerre de l'anneau notamment : la bataille du gouffre de Helm,
+              la bataille des champs du Pelennor et la bataille de la porte noire.
+              Il acquiert un humour plus prononcé dans les films que dans
+              les livres. Même si c'est son rôle.
+            </p>
+          </figcaption>
+        </figure>
+
+        <button class="cartePerso">
+          <img src="../images/imgPersonnages/aragornMinia.jpeg" alt="aragorn">
+        </button>
+        <figure class="descriptionPerso">
+          <img src="../images/imgPersonnages/aragorn.jpg" alt="aragorn">
+          <figcaption>
+            <h3>Aragorn</h3>
+            <p>
+              Aragorn, puis couronné sous le nom d'Elessar Telcontar
+              , est un personnage fictif du roman de J. R. R. Tolkien,
+              Le Seigneur des Anneaux. Fils d'Arathorn et de Gilraen,
+              petit-fils d'Arador, c'est un Rôdeur, surnommé aussi
+              Grand-Pas, descendant d'Isildur, héritier des trônes
+              d'Arnor et de Gondor. Et en tant que descendant des
+              Rois de Númenor, une vie plus longue lui est accordée ;
+              il ne meurt qu'à l'âge de 210 ans, ce qui était normal
+              pour les Rois de Númenor. Il est également appelé Dúnadan
+              par les Elfes, ce qui signifie "Homme de l'Ouest" ou
+              "Numénoréen" en elfique (Dun-Adan).
+            </p>
+          </figcaption>
+        </figure>
+
+        <button class="cartePerso">
+          <img src="../images/imgPersonnages/gollumMinia.jpg" alt="gollum">
+        </button>
+        <figure class="descriptionPerso">
+          <img src="../images/imgPersonnages/gollum.jpg" alt="gollum">
+          <figcaption>
+            <h3>Gollum</h3>
+            <p>
+              Connu en tant que Sméagol à l'origine, Gollum est un Hobbit
+              de la branche des Forts, qui vivait aux Champs des flambes vers
+              2440 T. A.. En 2463 T. A., il s'empare de l'Anneau unique après
+              avoir tué son ami qui vient de découvrir l'anneau dans le lit
+              de l'Anduin. Chassé par sa famille, il se réfugie dans une
+              caverne des Montagnes de Brume et prend le nom « Gollum » à
+              cause de bruits de déglutition qu'il fait avec sa gorge. Grâce
+              à l'Anneau unique, sa vie se voit allongée de plusieurs siècles
+              mais il est obsédé par celui-ci au point d'en devenir l'esclave.
+            </p>
+          </figcaption>
+        </figure>
+
+        <button class="cartePerso">
+          <img src="../images/imgPersonnages/sauronMinia.jpg" alt="sauron">
+        </button>
+        <figure class="descriptionPerso">
+          <img src="../images/imgPersonnages/sauron.jpg" alt="sauron">
+          <figcaption>
+            <h3>Sauron</h3>
+            <p>
+              Instigateur de la création des
+              Anneaux de Pouvoir, il donne son titre au plus célèbre roman
+              de l'auteur, Le Seigneur des anneaux. À l'origine un Maia (esprit)
+              corrompu par Morgoth, Sauron est l'ennemi principal du roman,
+              et cherche à tout prix à retrouver l'Unique, aidé de ses
+              fidèles et terribles serviteurs, les Nazgûl.
+              Malgré le fait d'être le personnage-titre du Seigneur des
+              Anneaux, Sauron est remarquable en ce qu'il n'apparaît jamais
+              directement lors des événements de la trilogie. Il n'y a
+              aucune description détaillée de lui, sauf dans des termes
+              vagues. Sauron est décrit comme un changeur de forme, et a
+              pris plusieurs formes, y compris celle d'un serpent, d'un
+              vampire et d'un grand loup.
+            </p>
+          </figcaption>
+        </figure>
+      </nav>
+    </main>
+
+    <footer class="mainFooter menu footerMenu">
+        <nav>
+          <ul>
+            <li><a class="footerLink" href="../accueil.html">Accueil</a></li>
+            <li><a class="footerLink" href="environnements.html">Environnements</a></li>
+            <li><a class="footerLink" href="histoireAnneau.html">Histoire de l'Anneau</a></li>
+            <li><a class="footerLink" href="tolkien.html">J.R.R. Tolkien</a></li>
+          </ul>
+        </nav>
+        <a href="#">
+            <img id="anneauLogoFooter" src="../images/imgCommun/anneaulogo.png" alt="Anneau">
+        </a>
+        <p>
+          Mini-Site web réalisé par Quentin Dumont dans le cadre du projet final du
+          module Technologie Web 1.
+        </p>
+        <p>
+            <a href="sources.html">Répertoire des sources</a>
+        </p>
+    </footer>
+
+  </body>
+
+</html>

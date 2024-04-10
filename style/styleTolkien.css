@@ -1,0 +1,192 @@
+/*-----------STYLE GENERAL DE LA PAGE--------------------*/
+
+main section {
+    width: 60%;
+    border: 2px ridge goldenrod;
+    border-radius: 50px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+main h3 {
+    margin: auto;
+    transition: 0.5s;
+}
+
+main section p {
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+    text-align: justify;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 10px;
+    transform: scale(0.5);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+main section:hover h3 {
+    transform: rotateX(360deg);
+    transition: 1s;
+}
+
+main section:hover p {
+    opacity: 1;
+    transform: scale(1);
+    transition: 1s
+}
+
+/*------------------------------------------------------*/
+
+/*--------------MENU TOLKIEN----------------------------*/
+
+/*On positionne l'image de Tolkien et de sa bulle. On utilise position:fixed
+pour qu'elles soient fixées à la fenêtre (ici en bas à droite)*/
+#tolkien {
+    width: 200px;
+    position: fixed;
+    bottom: -100px;
+    right: 5px;
+    transform: translateY(0) scale(0.8);
+    transition: 0.5s;
+}
+
+#tolkien:hover {
+    /*On le fait grossir et translater vers le haut quand on le survole.*/
+    transform: translateY(-30px) scale(1);
+    transition: 1s;
+}
+
+#bulle {
+    /*La bulle et son contenu ne sont pas visibles tant que Tolkien n'est pas cliqué.
+    Pour qu'elle ne soit pas au dessus du contenu de la page, on lui
+    donne la propriété z-index avec une valeur négative.*/
+    opacity: 0;
+    z-index: -3;
+    position: fixed;
+    bottom: 100px;
+    right: 150px;
+    transition: 0.5s;
+}
+
+#menu {
+    /*On rend le menu invisible et on le fait passer derrière le contenu principal
+    , on lui donne également une largeur correspondante à la taille de la bulle.*/
+    opacity: 0;
+    z-index: -3;
+    position: fixed;
+    right: 180px;
+    bottom: 200px;
+    width: 400px;
+    height: 300px;
+    font-family: "ringbearermedium";
+    color: black;
+    transition: 0.5s;
+    cursor: url(pointeurs/oeildesauron.png), pointer;
+}
+
+#menu ul {
+    /*On positionne les liens du menu*/
+    list-style: none;
+    display: grid;
+    margin-left : -120px;
+    width: 120%;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#menu a {
+    justify-self: center;
+    display: none;
+    text-align: center;
+    color: black;
+    transition: 0.2s;
+}
+
+#menu p {
+    /*Le 'all:revert' permet de réinitialiser le <p> avant de lui redonner
+    de nouvelles propriétés.*/
+    all: revert;
+    font-family: "ringbearermedium";
+    display: none;
+}
+
+#menu a:hover {
+    transform: scale(1.1);
+    text-decoration-color: green;
+    transition: 0.5s;
+}
+
+#menu:target {
+    /*On utilise la pseudo-classe ':target' pour afficher #menu,
+    pointé par le lien-image Tolkien.Ce qui équivaut à dire que
+    quand Tolkien est cliqué, le menu passe au premier-plan.
+
+    On lui met un z-index grand puisqu'il
+    doit être affiché devant le contenu et la bulle.*/
+    opacity: 1;
+    z-index: 5;
+    transition: 0.5s;
+}
+
+#menu:target + #bulle {
+    /*Quand Tolkien est cliqué, la bulle qui suit le menu dans le HTML s'affiche
+    et passe en premier-plan, cependant on lui met une valeur de z-index moins grande
+    que celle du menu, parce qu'on veut pouvoir voir les liens.*/
+    opacity: 1;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+#menu:target a, #menu:target p {
+    /*Quand Tolkien est cliqué, les liens et le texte du menu s'affiche.*/
+    display: block;
+}
+
+/*------------------------------------------------------------*/
+
+/*----------------REPONSIVE DESIGN----------------------------*/
+
+@media (max-width: 1200px) {
+    /*Pour les écrans de moyenne taille, les sections et paragraphes
+    de section s'étalent plus en largeur, et on réduit la taille des
+    titres.*/
+    main section {
+        width: 90%;
+    }
+    main section p {
+        width: 90%;
+    }
+    main h3 {
+        font-size: 1.3em;
+    }
+}
+@media (max-width: 700px) {
+    /*Pour les petits écrans, on repositionne le menu, on n'y affiche que les
+    liens (qu'on repositionne également). On redimensionne la bulle et la taille
+    du menu. Et enfin, on rend visible sans survol les paragraphes de section.*/
+    #menu {
+        width: 300px;
+        right: 5px;
+        bottom: 30px;
+    }
+    #menu:target p {
+        display: none;
+    }
+    #menu:target a {
+        position: relative;
+        top: 120px;
+    }
+    #bulle {
+        width: 380px;
+        right: 10px;
+        bottom: -70px;
+    }
+    main section p {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/*--------------------------------------------------------------*/

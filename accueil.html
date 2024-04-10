@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta name="author" content="dumont214">
+  <!--La ligne de code qui suit est très importante pour le responsive design,
+  elle permet aux petits écrans de profiter du design conçu spécialement
+  pour eux dans le css. En effet elle empêche aux navigateurs des smartphones,
+  tablettes de "dézoomer la page".-->
+  <meta name="viewport" content="initial-scale=1" />
+  <meta charset="utf-8">
+  <title>La Communauté de l'Anneau</title>
+  <!--J'inclus ici deux feuilles de style, une valable pour toutes
+    les pages de mon site, et une autre pour cette page en particulier.-->
+  <link rel="stylesheet" href="style/stylePrincipal.css">
+  <link rel="stylesheet" href="style/styleAccueil.css">
+  <!--Cette simple ligne de code permet de mettre une icône personnalisée sur l'onglet du navigateur.-->
+  <link rel="icon" type="image/png" href="images/imgCommun/anneaulogo.png">
+</head>
+
+<body>
+
+  <!--Mon en-tête contient un titre et une image-->
+  <header class="mainHeader">
+    <h1>La Communauté de l'Anneau</h1>
+    <img id="anneauLogoHeader" src="images/imgCommun/anneaulogo.png" alt="Anneau">
+  </header>
+
+  <!--J'ai pensé mon menu de navigation en quatre 'cartes' qui lorsqu'on les survole, affichent ce vers quoi
+    le lien conduit (avec une briève description). C'est une grille d'une ligne et de quatre colonnes, qui se révèle
+    très utile pour le design adaptatif.-->
+  <nav class="menu topMenu">
+    <p>Bienvenue sur ce site non-officiel inspiré de l'univers de la saga "Le Seigneur des Anneaux".</p>
+    <p>Par où voulez-vous commencer votre périple ?</p>
+
+    <ul>
+      <!--Cette structure particulière m'a permis d'obtenir le rendu que je souhaitais. C'est un lien comportant
+        une image et une description. J'ai englobé la description dans le lien pour pouvoir gérer son apparition
+        au survol.-->
+      <li>
+        <!-- BONNE STRUCTURE -->
+        <a href="pages/environnements.html">
+          <figure>
+            <img src="images/imgCommun/environnements.jpeg" alt="Environnements">
+            <figcaption>
+              <h2>Environnements</h2>
+              <p class="description">
+                Montez sur votre fidèle destrier et partez à la découverte des plus
+                belles contrées de la saga.
+              </p>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+
+      <li>
+        <a href="pages/personnages.html">
+          <figure>
+            <img src="images/imgCommun/personnages.jpg" alt="Personnages">
+            <figcaption>
+              <h2>Personnages</h2>
+              <p class="description">
+                Asseyez-vous et laissez-moi vous parler des pires et des meilleures
+                âmes de la Terre du Milieu.
+              </p>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+
+      <li>
+        <a href="pages/histoireAnneau.html">
+          <figure>
+            <img src="images/imgCommun/anneau.jpeg" alt="Histoire de l'Anneau">
+            <figcaption>
+              <h2>Histoire de l'Anneau</h2>
+              <p class="description">
+                Revêtez de chauds vêtements et suivez une mystérieuse créature
+                qui va vous conter l'histoire de l'Anneau.
+              </p>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+
+      <li>
+        <a href="pages/tolkien.html">
+          <figure>
+            <img src="images/imgCommun/tolkien.jpg" alt="Tolkien">
+            <figcaption>
+              <h2>J.R.R. Tolkien</h2>
+              <p class="description">
+                Restez dans notre monde et découvrez l'inventeur de cet
+                incroyable univers.
+              </p>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <!--Image qui vient séparer le menu de navigation du contenu principal-->
+  <figure class="map">
+    <img id="middleEarth" src="images/imgCommun/middleEarth.jpeg" alt="La Terre du Milieu">
+  </figure>
+
+  <!--J'ai organisé le contenu de la page d'accueil en <display: grid> également, avec deux lignes et deux colonnes. Cependant
+    vous remarquerez que la section 'Contexte' prend toute une ligne, grâce à une propriété CSS :
+    grid-column, qui permet de définir le nombre de colonnes sur lequel s'étale un élément de la grille-->
+  <main>
+
+    <p>Vous êtes sur la page d'accueil, vous y trouverez du contenu varié.</p>
+
+    <!--La section contenant le contexte et une grille pour la liste des trois films-->
+    <section class="contexte">
+      <h3>Contexte</h3>
+
+      <!--Certains mots ou noms sont mis en valeur par les classes "important" ou "personnalite",
+      ce qui améliore la lisibilité.-->
+      <p>
+        Le Seigneur des Anneaux est une <span class="important">trilogie</span> cinématographique de fantasy
+        américano-néo-zélandaise réalisée par <span class="personnalite">Peter Jackson</span> et fondée sur le
+        roman du même nom en trois volumes de J. R. R. Tolkien. Les films
+        composant cette trilogie sont :
+      </p>
+      <!--Ici, j'ai placé les affiches des trois films, avec leur titre. Elles sont
+      placées côte-à-côte sur grand écran.-->
+      <ul class="film">
+        <li>
+          <figure>
+            <figcaption>
+              <abbr id="first" title="Film sorti en 2001">La Communauté de l'Anneau : </abbr>
+            </figcaption>
+            <img id="film1" src="images/imgAccueil/film1.jpg" alt="La Communauté de l'Anneau">
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <figcaption>
+              <abbr id="deuxieme" title="Film sorti en 2002">Les Deux Tours : </abbr>
+            </figcaption>
+            <img src="images/imgAccueil/film2.jpg" alt="Les Deux Tours">
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <figcaption>
+              <abbr id="third" title="Film sorti en 2003">Le Retour du roi:</abbr>
+            </figcaption>
+            <img src="images/imgAccueil/film3.jpg" alt="Le Retour du Roi">
+          </figure>
+        </li>
+      </ul>
+      <p>
+        Ce projet est considéré comme l'un des plus ambitieux de l'histoire du
+        cinéma, avec un budget de <span class="important">285 millions</span> de dollars. Il a commencé à être
+        développé par <span class="personnalite">Jackson</span> en 1995 et s'est concrétisé avec le studio de
+        production <span class="personnalite">New Line Cinema</span> après que <span class="personnalite">Miramax
+        Films</span> l'a abandonné.
+        Le projet entier dura huit ans, bien que le tournage des trois films
+        se déroulât simultanément entre octobre 1999 et décembre 2000 et eût
+        lieu entièrement en Nouvelle-Zélande. Une version longue de chaque film
+        de la trilogie est sortie en DVD environ un an après leur sortie au cinéma.
+        Bien que les films suivent l'histoire du roman d'une façon générale,
+        ils omettent certains éléments et en ajoutent d'autres, déviant ainsi de leur source.
+      </p>
+    </section>
+
+    <!--La section contenant la bande-annonce-->
+    <section class="video">
+      <h3>Bande-Annonce</h3>
+      <!--Ceci est un code d'intégration provenant de Youtube, permettant d'intégrer une vidéo de cette plateforme.-->
+      <iframe width="800" height="360" src="https://www.youtube.com/embed/vvx7m22GGtA" title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <p>Se déroulant dans le monde fictif de <span class="important">la Terre du Milieu</span>, les trois
+        films suivent le hobbit <span class="important">Frodon Sacquet</span> alors que lui et les autres
+        membres de la <span class="important">Communauté de l'Anneau</span> s'engagent dans une quête pour
+        détruire <span class="important">l'Anneau unique</span>, et ainsi provoquer la chute de son créateur,
+        <span class="important">Sauron</span>. La Communauté finit par se diviser et <span class="important">Frodon</span>
+        poursuit sa quête seulement accompagné de son loyal compagnon <span class="important">Sam</span>
+        et de la fourbe créature nommée <span class="important">Gollum</span> (<span class="personnalite">Andy
+        Serkis</span>).
+        Pendant ce temps, le magicien <span class="important">Gandalf</span> et <span class="important">Aragorn</span>,
+        héritier en exil du trône de Gondor, rallient les peuples libres de la Terre du Milieu, qui finissent
+        par remporter la <span class="important">guerre de l'Anneau</span>.
+      </p>
+    </section>
+
+    <!--Un petit article sur la musique du Seigneur des Anneaux, qui se situe à côté
+      de la bande-annonce-->
+    <aside>
+      <h3>Musique</h3>
+      <img id="howardShore" src="images/imgAccueil/howardShore.png" alt="Shore" title="Une photo d'Howard Shore">
+      <p><span class="personnalite">Howard Shore</span> a composé, orchestré et produit la musique de la trilogie.
+        Il a été engagé en août 2000 et a visualisé le montage des premier et
+        troisième films. La musique est principalement interprétée par <span class="personnalite">l'orchestre
+          philharmonique de Londres</span>, et de nombreux artistes tels qu'
+        <span class="personnalite">Enya</span>,
+        <span class="personnalite">Renée Fleming</span>,
+        <span class="personnalite">James Galway</span>,
+        <span class="personnalite">Annie Lennox</span> et
+        <span class="personnalite">Emiliana Torrini</span> y ont contribué.
+        Même les acteurs <span class="personnalite">Billy Boyd</span>,
+        <span class="personnalite">Viggo Mortensen</span>,
+        <span class="personnalite">Liv Tyler</span>,
+        <span class="personnalite">Miranda Otto</span>
+        (dans les versions longues pour ces deux dernières), et
+        <span class="personnalite">Peter Jackson</span>
+        ont contribué à cette interprétation. <span class="personnalite">Fran Walsh</span> et
+        <span class="personnalite">Philippa Boyens</span> ont
+        aussi écrit les paroles de différentes chansons, que
+        <span class="personnalite">David Salo</span> a traduites
+        dans les langues créées par <span class="personnalite">Tolkien</span>. La chanson de la fin du troisième film,
+        <span class="important">Into the West</span>, est un hommage à un jeune cinéaste nommé
+        <span class="personnalite">Cameron Duncan</span> avec
+        qui <span class="personnalite">Jackson</span> et <span class="personnalite">Walsh</span>
+        étaient liés d'amitié, qui est mort du cancer en 2003
+        à l'âge de 17 ans. <span class="personnalite">Shore</span>
+        a composé un thème principal pour la Communauté de
+        l'Anneau plutôt que de nombreux thèmes pour les différents personnages,
+        et ses forces et faiblesses sont représentées par des variations de
+        l'orchestration, à différents moments de la trilogie. En plus de cela,
+        des thèmes individuels ont été composés pour représenter les différentes
+        cultures. La musique originale des versions longues des trois films, appelée
+        <span class="important">The Complete Recordings</span>,
+        est disponible sur dix disques (respectivement trois,
+        trois et quatre pour chacun des films).
+      </p>
+    </aside>
+
+  </main>
+
+  <!--Le pied-de-page reprend le menu de navigation en simplifié sans images, ainsi qu'un bouton de retour vers le
+    haut de la page (anneau) et enfin un lien vers le répertoire des sources.-->
+  <footer class="mainFooter menu footerMenu">
+    <nav>
+      <ul>
+        <li><a class="footerLink" href="pages/environnements.html">Environnements</a></li>
+        <li><a class="footerLink" href="pages/personnages.html">Personnages</a></li>
+        <li><a class="footerLink" href="pages/histoireAnneau.html">Histoire de l'Anneau</a></li>
+        <li><a class="footerLink" href="pages/tolkien.html">J.R.R. Tolkien</a></li>
+      </ul>
+    </nav>
+    <a href="#">
+      <img id="anneauLogoFooter" src="images/imgCommun/anneaulogo.png" alt="Anneau">
+    </a>
+    <p>
+      Mini-Site web réalisé par Quentin Dumont dans le cadre du projet final du
+      module Technologie Web 1.
+    </p>
+    <p>
+      <a href="pages/sources.html">Répertoire des sources</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>

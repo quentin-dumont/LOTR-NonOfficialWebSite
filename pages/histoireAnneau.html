@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+  <head>
+    <meta name="author" content="dumont214">
+    <meta name="viewport" content="initial-scale=1" />
+    <meta charset="utf-8">
+    <title>La Communauté de l'Anneau</title>
+    <link rel="stylesheet" href="../style/stylePrincipal.css">
+    <link rel="stylesheet" href="../style/styleHistoireAnneau.css">
+    <link rel="icon" type="image/png" href="../images/imgCommun/anneaulogo.png">
+  </head>
+
+  <body>
+
+    <header class="mainHeader">
+      <h1>Histoire de l'Anneau</h1>
+      <img id="anneauLogoHeader" src="../images/imgCommun/anneaulogo.png" alt="Anneau">
+    </header>
+
+    <nav class="menu topMenu">
+
+        <p>Vous pouvez continuer votre aventure, ou retourner à l'accueil.</p>
+
+        <ul>
+
+          <li>
+            <a href="../accueil.html">
+              <img id="retourAccueil" src="../images/imgCommun/retour_accueil.jpg" alt="retour_accueil">
+            </a>
+          </li>
+
+          <li>
+            <a href="environnements.html">
+              <figure>
+                  <img src="../images/imgCommun/environnements.jpeg" alt="Environnements">
+                  <figcaption>
+                    <h2>Environnements</h2>
+                    <p class="description">
+                    Montez sur votre fidèle destrier et partez à la découverte des plus
+                    belles contrées de la saga.
+                    </p>
+                  </figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li>
+            <a href="personnages.html">
+              <figure>
+                <img src="../images/imgCommun/personnages.jpg" alt="Personnages">
+                <figcaption>
+                  <h2>Personnages</h2>
+                  <p class="description">
+                    Asseyez-vous et laissez-moi vous parler des pires et des meilleures
+                    âmes de la Terre du Milieu.
+                  </p>
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li>
+            <a href="tolkien.html">
+              <figure>
+                  <img src="../images/imgCommun/tolkien.jpg" alt="Tolkien">
+                  <figcaption>
+                    <h2>J.R.R. Tolkien</h2>
+                    <p class="description">
+                      Restez dans notre monde et découvrez l'inventeur de cet
+                      incroyable univers.
+                    </p>
+                  </figcaption>
+              </figure>
+            </a>
+          </li>
+
+        </ul>
+    </nav>
+
+    <figure class="map">
+      <img id="middleEarth" src="../images/imgCommun/middleEarth.jpeg" alt="La Terre du Milieu">
+    </figure>
+
+    <main>
+
+      <p><span class="important">Passez la souris</span> sur les éléments pour découvrir l'Histoire de l'Anneau.</p>
+      
+      <!--Je voulais raconter une petite histoire sur cette page, en la dévoilant au fur-et-à-mesure,
+      au passage de la souris. 
+      
+      Il a deux types de section et une section finale : un type "dialogue" et 
+      un type "histoire". Le "dialogue" est conçu pour contenir des figures en 
+      alternance (image/court script) avec apparition du texte par défilement horizontal. 
+      Le type "histoire" est conçu pour contenir un grand paragraphe et une image, 
+      avec apparition du texte par défilement vertical. 
+      
+      On peut ainsi envisager sereinement de rallonger la page avec des 
+      sections "dialogue" et d'autres "histoire", sans toucher au css.-->
+
+
+      <!--Les sections "dialogue" regroupent des figures (avec image et court script)
+      Le script est en effet contraint à une certaine longueur, pour que l'effet de 
+      défilement textuel reste crédible.-->
+      <section class="dialogue">
+        <h3>Vous entrez dans la caverne de Gollum...</h3>
+        <figure>
+          <img src="../images/imgHistoireAnneau/gollum2.jpg" alt="gollumAccueil">
+          <figcaption>
+            <p>
+              Argh... GOLLUM !!! Qu'est-ce qu'un humain vient faire chez GOLLUM ?!
+            </p>
+            <p class="devoileTexte"></p>
+          </figcaption>
+        </figure> 
+  
+        <figure>
+          <img src="../images/imgHistoireAnneau/gollum.jpg" alt="gollumAccueil">
+          <figcaption>
+            <p>
+              Oh ! L'humain veut entendre l'Histoire de l'Anneau. Grr.. Très bien.
+            </p>
+            <p class="devoileTexte"></p>
+          </figcaption>
+        </figure>
+      </section>
+      
+      <!--Les sections "histoire" sont conçues pour accueillir des textes plus longs,
+      puisque le fait qu'ils s'étalent sur plusieurs lignes ne pose pas de problème au
+      défilement vertical. Chaque figure de "histoire" contient une image et une
+      description qui peut être longue.-->
+      <section class="histoire">
+        <h3>Gollum vous récite un poème...</h3>
+        <figure>
+          <figcaption id="poesie">
+            <p>
+              « Trois anneaux pour les rois Elfes sous le ciel,<br>
+              Sept pour les Seigneurs Nains dans leurs demeures de pierre,<br>
+              Neuf pour les Hommes Mortels destinés au trépas,<br>
+              Un pour le Seigneur Ténébreux sur son sombre trône,<br>
+              Dans le Pays de Mordor où s'étendent les Ombres.<br>
+              Un anneau pour les gouverner tous. Un anneau pour les trouver,<br>
+              Un anneau pour les amener tous et dans les ténèbres les lier<br>
+              Au Pays de Mordor où s'étendent les Ombres. »
+            </p>
+            <p class="devoilePoesie"></p>
+          </figcaption>
+          <img src="../images/imgHistoireAnneau/anneau1.jpg" alt="anneau">
+        </figure>
+      </section>
+
+      <section class="dialogue">
+        <h3>Gollum vous toise et semble nerveux...</h3>
+        <figure>
+          <img src="../images/imgHistoireAnneau/gollum2.jpg" alt="gollumAccueil">
+          <figcaption>
+            <p>
+              Telle est la légende de l'Anneau unique... Mon précieux...
+            </p>
+            <p class="devoileTexte"></p>
+          </figcaption>
+        </figure> 
+  
+        <figure>
+          <img src="../images/imgHistoireAnneau/anneau3.jpg" alt="gollumAccueil">
+          <figcaption>
+            <p>
+              Vous apercevez un objet scintillant au fond de la caverne.
+            </p>
+            <p class="devoileTexte"></p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="../images/imgHistoireAnneau/gollum3.jpg" alt="gollumAccueil">
+          <figcaption>
+            <p>
+              L'humain est-il satisfait ? Alors il doit PARTIR ! Mon précieux est A MOI !!
+            </p>
+            <p class="devoileTexte"></p>
+          </figcaption>
+        </figure> 
+      </section>
+
+
+      <!--Cette dernière section est présente uniquement pour le côté "jeu de rôle" de la page,
+      et offre un pseudo-choix.-->
+      <section class="choix">
+        <h3>Faites le bon choix...</h3>
+        <ul>
+          <li>
+            <!--Le premier est un simple lien qui ramène à la page d'accueil-->
+            <a href="../accueil.html">Prendre la fuite.</a>
+          </li>
+          <li>
+            <!--Le deuxième est un bouton (parce qu'on peut utiliser efficacement la
+            pseudo-classe :focus dessus). Au clic, ou au verouillage par tabulation,
+            il affiche une image.-->
+            <button id="screamerTrigger">
+              Tenter de dérober l'anneau.
+            </button>
+            <img src="../images/imgHistoireAnneau/gollumScreamer.jpg" alt="gollumScreamer">
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer class="mainFooter menu footerMenu">
+        <nav>
+            <ul>
+            <li><a class="footerLink" href="../accueil.html">Accueil</a></li>
+            <li><a class="footerLink" href="environnements.html">Environnements</a></li>
+            <li><a class="footerLink" href="personnages.html">Personnages</a></li>
+            <li><a class="footerLink" href="tolkien.html">J.R.R. Tolkien</a></li>
+            </ul>
+        </nav>
+        <a href="#">
+            <img id="anneauLogoFooter" src="../images/imgCommun/anneaulogo.png" alt="Anneau">
+        </a>
+        <p>
+          Mini-Site web réalisé par Quentin Dumont dans le cadre du projet final du
+          module Technologie Web 1.
+        </p>
+        <p>
+            <a href="sources.html">Répertoire des sources</a>
+        </p>
+    </footer>
+
+  </body>
+
+</html>

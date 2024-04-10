@@ -1,0 +1,245 @@
+/*-----------------STYLE GENERAL DU CONTENU PRINCIPAL----------------*/
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  padding: 20px;
+  text-align: justify;
+}
+
+main > p {
+  /*Comme le main est en grille de deux colonnes, on précise
+  que la phrase d'accorche doit s'étendre sur les deux colonnes.*/
+  grid-column: span 2;
+}
+
+main h3 {
+  /*'Le margin: auto' centre l'élément horizontalement,
+  puisque sa largeur est définie dans le style principal
+  (width: max-content)*/
+  margin: auto;
+  transition: 0.5s;
+}
+
+main aside:hover h3, section:hover h3 {
+  /*Mise en évidence du titre de la section survolée
+  La propriété 'transform : rotate' va faire tourner
+  sur lui-même un élément, ici les h3 font un tour
+  complet sur l'axe X*/
+  transform: rotateX(360deg);
+  transition: 1s;
+}
+/*-----------------------------------------------------------*/
+
+/*-----------------------PARTIE CONTEXTE---------------------*/
+
+.contexte {
+  /*Le contexte s'étale sur les deux colonnes.
+  (ici 1/3 équivaut à span 2)*/
+  grid-column: 1/3;
+}
+
+.contexte p {
+  /*Je définis la largeur des paragraphes à 60% pour qu'ils ne s'étalent
+  pas trop sur la longueur de la page.*/
+  width: 60%;
+  margin: 20px auto;
+}
+
+.film {
+  /*Les trois films sont disposés côte-à-côte, avec une grid pour faciliter
+  sa modification sur les plus petits écrans.*/
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr;
+  justify-content: space-around;
+}
+
+.film li {
+  /*Style de chaque bloc contenant affiche et titre. (On fixe
+  la taille pour que ce soit uniforme.)*/
+  border: 2px solid goldenrod;
+  border-radius: 50px;
+  margin: 20px 50px;
+  padding: 3%;
+  width: 400px;
+  height: 600px;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  transition: 0.5s;
+}
+
+.film img {
+  width: 300px;
+  height: 400px;
+  margin-top: 50px;
+  padding: 2%;
+  border-bottom: 6px ridge goldenrod;
+  border-radius: 20px;
+}
+
+#film1 {
+  /*Cette image avait subi un décalage vers le bas à cause
+  du titre du film qui était trop long et s'étalait sur deux lignes.
+  On corrige avec une position relative.*/
+  position: relative;
+  bottom: 35px;
+}
+
+/*On utilise le pseudo-élément ::before pour rajouter un
+caractère unicode avant les titres des films.*/
+#first::before {
+  content: '💫 ';
+}
+#deuxieme::before {
+  content: '🏰 ';
+}
+#third::before {
+  content: '👑';
+}
+
+abbr {
+  /*J'ai choisi des balises abbr pour les titres des films
+  pour dévoiler leur date de sortie si l'on garde le pointeur dessus.*/
+  display: block;
+  text-decoration: none;
+  border: 2px ridge green;
+  border-radius: 10px;
+  color: goldenrod;
+  transition: 0.5s;
+  font-family: 'ringbearermedium';
+  font-size: 1.2em;
+}
+
+.film li:hover {
+  border-radius: 0;
+  transition: 0.5s;
+}
+
+.film li:hover abbr {
+  /*Au survol des grands blocs contenant l'affiche et le titre
+  du film, le titre est mis en évidence. */
+  cursor: url(pointeurs/oeildesauron.png), pointer;
+  color: green;
+  transform: scale(1.2);
+  transition: 0.5s;
+  border: 2px ridge goldenrod;
+  /*On utilise ici l'animation créée dans stylePrincipal.css*/
+  animation-name: pulsation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  /*La valeur 'alternate-reverse' permet de commencer l'animation
+  dans le sens inverse et d'alterner le sens, pour donner une impression
+  de fluidité et ici d'une pulsation.*/
+  animation-direction: alternate-reverse;
+}
+
+/*-----------------------------------------------*/
+
+/*---------------PARTIE BANDE-ANNONCE-------------*/
+.video {
+  /*La vidéo se situe sur la première colonne*/
+  grid-column: 1;
+  /*On marque une séparation avec le aside avec
+  une bordure à droite, qu'on écarte du contenu avec
+  un padding.*/
+  padding-right: 50px;
+  margin-right: 20px;
+  border-right: 4px ridge green;
+  text-align: center;
+}
+
+.video p {
+  text-align: justify;
+}
+
+iframe {
+  /*On personnalise le cadre de la vidéo youtube,
+  et on définit sa largeur maximale à 100% de son celle
+  de sa section. (utile pour les petits écrans)*/
+  max-width: 100%;
+  margin-top: 10px;
+  border: 4px ridge green;
+  border-radius: 20px;
+}
+/*-----------------------------------------------*/
+
+/*---------------PARTIE MUSIQUE------------------*/
+aside {
+  /*On précise ici que le aside prend la deuxième colonne.
+  On le place ainsi à côté de la bande-annonce*/
+  grid-column: 2;
+  justify-self: center;
+}
+
+#howardShore {
+  /*On fait flotter l'image du compositeur à droite,
+  en ajoutant des bordures pour les bords en contact avec le texte.*/
+  float: right;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-left: 2px ridge green;
+  border-bottom: 2px ridge green;
+}
+/*------------------------------------------------*/
+
+/*-----------RESPONSIVE DESIGN-------------------*/
+
+@media (max-width: 1600px) {
+  /*Pour les écrans de taille moyenne,
+  les affiches repassent en une seule colonne,
+  et la bande-annonce et le aside prennent toute
+  la largeur de l'écran.*/
+  .film {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-content: center;
+    padding: 0;
+  }
+  .film li {
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .video {
+    grid-column: 1/3;
+    /*On supprime ici la séparation avec 'revert'.*/
+    padding-right: revert;
+    margin-right: revert;
+    border-right: revert;
+  }
+  aside {
+    grid-column: 1/3;
+  }
+}
+
+@media (max-width: 650px) {
+  /*Design mobile*/
+  .contexte p {
+    /*Le texte s'étale plus.*/
+    width: 90%;
+  }
+  /*On réduit la taille des affiches et de leur image.*/
+  .film li {
+    width: 300px;
+    height: 400px;
+  }
+  .film img {
+    width: 200px;
+    height: 266px;
+  }
+  /*On supprime le caractère flottant de l'image du aside,
+  (passage en display: block) on la centre et on lui met
+  des bordures sur tous les côtés.*/
+  #howardShore {
+    float: none;
+    display: block;
+    margin: 10px auto;
+    border: 2px ridge green;
+  }
+}
+
+/*--------------------------------------------------*/
